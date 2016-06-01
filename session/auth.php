@@ -17,7 +17,7 @@ printf("{$row[UserName]}<br>");
 printf("{$UserName}<br>");
 printf("{$row[Password]}<br>");	
 printf("{$Password}<br>");
-	if ( ($row[Password] == $Password) and ($row[UserName] == $UserName) and ($Captch == $_SESSION['Sikretik']) ){
+	if ( ($row[Password] == $Password) and ($row[UserName] == $UserName)){
 		$_SESSION['logged_user'] = $UserName;
 		header("Location: ../ajaxPR/ajax.php");
 		$sql = "INSERT INTO `u533224130_stas`.`Message` (`text`,`User`) VALUES ('Пользователь {$UserName} Вошел в Систему','Систему');";

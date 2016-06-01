@@ -15,7 +15,7 @@
 				del($id,$ids,$dbh);
 				break;
 			case "up": 
-				up($FIO,$url,$id,$ids,$dbh);
+				up($FIO,$Url,$id,$ids,$dbh);
 				break;
 			case "add":
 				
@@ -45,16 +45,16 @@
 						$arr = explode(",", $ids);
 						for($i = 0;$i<count($arr);$i++){
 								$sql =  " DELETE FROM `u533224130_stas`.`Users` WHERE `id` = {$arr[$i]}";
-								$result = $conn -> query($sql)or die("ERROR: ".mysql_error());
+								$result = $dbh->query($sql)or die("ERROR: ".mysql_error());
 					
 					}
 			}
 		}
 
-		 function up($FIO,$url,$id,$ids,$dbh){
+		 function up($FIO,$Url,$id,$ids,$dbh){
 			if(!empty($id)){
 							//UPDATE "group" SET group_name = "Unicornsss", date_of_creation = "2014-02-01" WHERE  "id" = 1
-							$sql = "UPDATE `u533224130_stas`.`Users` SET `FIO` = '{$FIO}', `url_to_blog` = '{$url}' WHERE `Users`.`id`={$id}";
+							$sql = "UPDATE `u533224130_stas`.`Users` SET `FIO` = '{$FIO}', `url_to_blog` = '{$Url}' WHERE `Users`.`id`={$id}";
 							echo $sql;
 							sleep(3);
 							$result = $dbh->query($sql)or die("ERROR: ".mysql_error());
@@ -63,7 +63,7 @@
 		else{
 						$arrId = explode(",", $ids);
 						$arrFio = explode(",", $FIO);
-						$arrUrl = explode(",", $url);
+						$arrUrl = explode(",", $Url);
 						
 						for($i = 0;$i<count($arrId);$i++){
 							$sql = "UPDATE `u533224130_stas`.`Users` SET `FIO` = '{$arrFio[$i]}', `url_to_blog` = '{$arrUrl[$i]}' WHERE `Users`.`id`={$arrId[$i]}";

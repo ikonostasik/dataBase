@@ -13,7 +13,7 @@ $(document).ready(function(){
 				var id = $(this).attr('id')
 				var FIO = $(this).next().next().next().children().val();
 				var url = $(this).next().next().next().next().children().val();
-				$.get("../session/update.php?id=" + id +"&FIO="+FIO+"&url="+url, function(data){
+				$.get("../bdPHP/operations.php?id=" + id +"&FIO="+FIO+"&url="+url+"&action=up", function(data){
 				});
                                 alert("Изменения вступили в силу");
 				$('.right').load('../bdPHP/display.php');
@@ -23,7 +23,7 @@ $(document).ready(function(){
 				var id = $(this).next().children().val();
 					if(confirm("Подтвердите удаление"))
 					{
-				$.get("../session/test.php?id=" + id, function(data){
+				$.get("../bdPHP/operations.php?id=" + id+"&action=del", function(data){
 				});				
 					}
 				$('.right').load('../bdPHP/display.php');	

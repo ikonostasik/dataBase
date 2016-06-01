@@ -1,25 +1,16 @@
 <?php
 session_start();
+require('../Classes/connect.php');
 header('Content-Type: text/html; charset= utf-8');
-$dbloc ="mysql.hostinger.ru";
-$dbuser ="u533224130_user";
-$dbpass ="password";
-if ($_SERVER["SERVER_ADDR"] == "127.0.0.1") {
-$dbloc ="localhost";
-$dbuser ="root";
-$dbpass ="";
-};
-
-$Captch = $_POST['captcha'];
-$UserName = $_POST['name'];
-$Password = $_POST['Password'];
-$dsn = "mysql:host={$dbloc}";
-$conn = new PDO($dsn, $dbuser, $dbpass);
-$conn-> exec("SET CHARACTER SET utf8");
-
-$sql = "SELECT * FROM `u533224130_stas`.`User`";
-
-$result = $conn -> query($sql);
+$UserName = $_POST["name"];
+$Password = $_POST["Password"];
+$Captch = $_POST["captcha"];
+$dbh = Connection::getInstance()->connect();
+	$sql = "SELECT * FROM `u533224130_stas`.`User`";			
+				$result = $dbh->query($sql);
+				
+				// 'u533224130_stas'.
+				
 
 while ($row = $result->fetch(PDO::FETCH_ASSOC)){
 printf("{$row[UserName]}<br>");

@@ -17,8 +17,8 @@ session_start();
 		
 	</head>
 	<body>
-		<div>
-		<a href="../session/destroy.php" ><button>exit</button></a>
+		<div class="exit">
+		<a href="../session/destroy.php" ><button id="exit">Выход</button></a>
 		</div>
 		<div class="right">
 		<?php

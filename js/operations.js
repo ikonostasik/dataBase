@@ -13,18 +13,21 @@ $(document).ready(function(){
 				var id = $(this).attr('id')
 				var FIO = $(this).next().next().next().children().val();
 				var url = $(this).next().next().next().next().children().val();
-				$.get("../bdPHP/operations.php?id=" + id +"&FIO="+FIO+"&url="+url+"&action=up", function(data){
-				});
-                                alert("Изменения вступили в силу");
-				$('.right').load('../bdPHP/display.php');
-					})
+				$.get("../bdPHP/operations.php?id=" + id +"&FIO="+FIO+"&Url="+url+"&action=up", function(data){
+				}) .done(function() {
+					 alert("Изменения вступили в силу");
+               
+					$('.right').load('../bdPHP/display.php');
+   
+ 					 })
+				})
 				
 			$(".del").click(function(){
 				var id = $(this).next().children().val();
 					if(confirm("Подтвердите удаление"))
 					{
 				$.get("../bdPHP/operations.php?id=" + id+"&action=del", function(data){
-				});				
+				})				
 					}
 				$('.right').load('../bdPHP/display.php');	
 			});	

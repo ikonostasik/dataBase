@@ -1,4 +1,4 @@
-		
+        
 html, body {
     font-family: Ubuntu, sans-serif;
     width: 100%;
@@ -28,7 +28,7 @@ form input, form button {
     border: 1px solid #DDD;
 }
 input {
-	text-align: center;
+    text-align: center;
 }
 #password.invalid {
     box-shadow: 0 0 10px 0 red;
@@ -127,12 +127,53 @@ body>div {
     color: #008835;
 }
 #reg:hover {
-	color: #25D212;
-	background-color: #fff;
-	border-color: #25D212;
+    color: #25D212;
+    background-color: #fff;
+    border-color: #25D212;
 }
 #reg:active {
-	background-color: rgba(0,136,53,0.7);
-	color:rgba(255,255,255,0.2);
+    background-color: rgba(0,136,53,0.7);
+    color:rgba(255,255,255,0.2);
+}
+
+.hidden {
+    position: absolute;
+    display: ;
+    left: 44%;
+    bottom: 40%;
+    z-index: 10;
+}
+.hidden input {
+    background-color: #ccc;
+    width: 100%;
+    font-size: 16px;
+    height: 35px;
+    border: none;
+}
+.hidden button {
+    width: 48%;
+    height: 25px;
+    padding: 0;
+    border: 1px solid black;
+    
+    border-radius: 2px;
+}
+#refresh {
+    width: 16%;
+    margin-top: 7px;
+}
+#confirm {
+    margin-left: 32px;
+}
+.hidden button:hover {
+    background-color: #fff;
+}
+
+.dark {
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    height: 100%;
+    z-index: 9;
+    display: none;
 }
 

@@ -28,18 +28,15 @@
 
 		}
 		 function add($FIO,$Url,$dbh){
-					$sql = "INSERT INTO `u533224130_stas`.`Users` (`FIO`, `url_to_blog`) VALUES ('{$FIO}','{$Url}');";
-					echo $sql;
-					echo $action;
-					$result = $dbh->query($sql)or die("ERROR: ".mysql_error());	
+		 			$sth = $dbh->prepare('INSERT INTO `u533224130_stas`.`Users` (`FIO`, `url_to_blog`) values(?,?,?)');
+					$result = $sth->execute(array($UserName,$Password,$mail))or die("ERROR: ".mysql_error());	
 							}
 		
 
 		 function del($id,$ids,$dbh) {
 						if (!empty($id)){
-					$sql = "DELETE FROM `u533224130_stas`.`Users` WHERE `id` = {$id}";
-					
-					$result = $dbh->query($sql)or die("ERROR: ".mysql_error());
+					$sth = $dbh->prepare("DELETE FROM `u533224130_stas`.`Users` WHERE `id` = ?");
+					$result = $sth->execute(array($id)or die("ERROR: ".mysql_error());			
 					}
 					else {
 						$arr = explode(",", $ids);
@@ -54,10 +51,10 @@
 		 function up($FIO,$Url,$id,$ids,$dbh){
 			if(!empty($id)){
 							//UPDATE "group" SET group_name = "Unicornsss", date_of_creation = "2014-02-01" WHERE  "id" = 1
-							$sql = "UPDATE `u533224130_stas`.`Users` SET `FIO` = '{$FIO}', `url_to_blog` = '{$Url}' WHERE `Users`.`id`={$id}";
-							echo $sql;
+							$sql =   "UPDATE `u533224130_stas`.`Users` SET `FIO` = '?', `url_to_blog` = '?' WHERE `Users`.`id`= ? ";
+							
 							sleep(3);
-							$result = $dbh->query($sql)or die("ERROR: ".mysql_error());
+							$result = $sth->execute(array($FIO,$Url,$id)or die("ERROR: ".mysql_error());
 						}
 		
 		else{
